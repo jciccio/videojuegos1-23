@@ -19,9 +19,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("Fire1")){
-            rb.velocity = Jump;
+           rb.velocity = Jump;
         }
     }
+
+   
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag(Constants.DEATH_TAG)){
