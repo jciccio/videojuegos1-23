@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  
+    [SerializeField] ParticleSystem Particles;
+    SpriteRenderer Sprite;
+    BoxCollider2D BoxCollider;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Awake(){
+        Sprite = GetComponent<SpriteRenderer>();
+        BoxCollider = GetComponent<BoxCollider2D>();
+        //Particles = GetComponentInChildren<ParticleSystem>();
     }
 
     void OnCollisionEnter2D(Collision2D other){
+        //Destroy(this.gameObject);
+        StartCoroutine(DeleteObject());
+    }
+
+    IEnumerator DeleteObject(){
+        Sprite.enabled = false;
+        BoxCollider.enabled = false;
+        Particles.Play();
+        yield return new WaitForSeconds(Particles.main.startLifetime.constantMax);
         Destroy(this.gameObject);
     }
 }
