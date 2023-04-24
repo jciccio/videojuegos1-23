@@ -19,12 +19,17 @@
  - Jugador habilitado para el juego Blocky Birds
 
 ### 11 Abril
+ #### Creación del juego de Breakout
  - Agregado proyecto Breakout con Core Render Pipeline 
  - Explicación de Prefabs
  - Explicación de cómo crear un Pad y moverlo con el mouse relativo a la pantalla e independiente de la resolución
  - Creación del movimiento de la bola
  - Explicación de cómo eliminar objetos como los bloques
  - Creación de un stage correcto con texturas escaladas y tileadas
+ - Creación del layout 
+ - Manejo de texturas 
+ - Colisiones con la pantalla 
+ - Colisiones con las cajas
 
 ### 14 Abril
  - Explicación del sistema de partículas
