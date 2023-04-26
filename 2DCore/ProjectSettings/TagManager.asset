@@ -8,6 +8,7 @@ TagManager:
   - Vertical Wall
   - Block
   - Paddle
+  - Lost
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ public class LevelLoader : MonoBehaviour
         LoadLevel("Assets/Levels/Level1.txt");   
     }
 
-    void LoadLevel(string path){
+    public bool LoadLevel(string path){
         string data = LoadLevelFile(path);
         string [] line = data.Split("\n");
         Vector2 position = StartingPoint.position;
@@ -48,6 +48,7 @@ public class LevelLoader : MonoBehaviour
             position.y += yMovement;
             position.x = StartingPoint.position.x;
         }
+        return count > 1;
     }
 
     IEnumerator AnimateToPosition(GameObject obj, Vector2 targetPosition){

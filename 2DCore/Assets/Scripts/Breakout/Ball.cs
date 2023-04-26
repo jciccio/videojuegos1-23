@@ -5,11 +5,17 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     
+    [Header("Physics")]
     [SerializeField] Vector2 Velocity = new Vector2(1f,3f);
-    
     [SerializeField] float _collisionFloat = 0.45f;
+    [SerializeField] float XMultiplier = 1f;
 
+    [Header("References")]
+    [SerializeField] Pad Paddle;
+    [SerializeField] private bool _playing = false; 
     
+
+
     Rigidbody2D _ballRigidbody;
 
     
@@ -23,11 +29,27 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        LockToPaddle();
+        LaunchBall();
+    }
+
+    void LockToPaddle(){
+        if(!_playing){
+            Vector2 paddlePosition = Paddle.transform.position;
+            transform.position = paddlePosition + new Vector2(0,1);   
+        }
+    }
+
+    void LaunchBall(){
+        if(!_playing && Input.GetMouseButtonDown(0)){
+            _playing = true;
+            _ballRigidbody.velocity = Vector2.up * 4; 
+        }
     }
 
     void FixedUpdate(){
-        _ballRigidbody.velocity = Velocity;
+        if(_playing)
+            _ballRigidbody.velocity = Velocity;
     }
 
     void OnHorizontalCollision(){
@@ -54,7 +76,12 @@ public class Ball : MonoBehaviour
             Velocity = new Vector2(Velocity.x * -1, Velocity.y);
         }
 
+        GameManager.instance.AddPoints();
+    }
 
+    void OnPaddleCollision(Collision2D other){
+        float xCollisionPoint = other.contacts[0].point.x - other.transform.position.x;
+        Velocity = new Vector2(xCollisionPoint * XMultiplier, Velocity.y * -1);
     }
 
     void OnCollisionEnter2D(Collision2D element){
@@ -77,9 +104,21 @@ public class Ball : MonoBehaviour
         }
         if (collisionTag == Constants.PADDLE){
             // Tarea -> agregar aqui el rebote contra el pad del jugador
-        }
-        
-
-        
+            OnPaddleCollision(element);
+        }  
     }
+
+    void OnPlayerLost(){
+        GameManager.instance.UpdateLives(GameManager.instance.Lives - 1);
+        _playing = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider){
+        Debug.Log(collider.tag);
+        if(collider.tag == Constants.LOST){
+            OnPlayerLost();
+        }
+    }
+
+
 }
