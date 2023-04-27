@@ -41,3 +41,18 @@
  - Generación de un nivel 2D plataforma
  - Manejo de cámara para seguir un elemento
  - Movimiento de un personaje usando físicas de juego (aceleración)
+
+### 25 Abril
+
+Escena Breakout
+- Creado el rebote de la paleta
+- Creado el game manager (singleton)
+- Agregado los puntos y record
+- Explicación de cambio de escenas
+- Explicación de PlayerPrefs
+- Agregadas las vidas/ Perder el juego (utilizando Triggers)
+
+Escena Juego De plataformas
+-  Explicación de máquinas de estados
+-  Transiciones entre estados
+-  Agregadas animaciones de idle y run
