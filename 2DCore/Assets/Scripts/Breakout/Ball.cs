@@ -76,6 +76,8 @@ public class Ball : MonoBehaviour
             Velocity = new Vector2(Velocity.x * -1, Velocity.y);
         }
 
+        AudioManager.instance.PlaySfx(Constants.SFX_BOX_BREAK);
+
         GameManager.instance.AddPoints();
     }
 

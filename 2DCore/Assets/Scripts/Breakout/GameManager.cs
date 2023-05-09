@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       Lives = 3;
+       Lives = 1;
        LivesText.text = $"Lives: {Lives}";
        PointsText.text = "Points: 0";
        HighScoreText.text = $"HS: {PlayerPrefs.GetInt("Highscore", 0)}";
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Perdió :(");
             Points = 0;
             PointsText.text = $"Points: {Points}";
+            SceneManager.LoadScene("BreakoutWon");
         }
     }
 

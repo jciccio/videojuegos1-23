@@ -6,5 +6,9 @@ public class Constants
    public const string PADDLE = "Paddle";
    public const string LOST = "Lost";
 
+   // Sound Constants
+
+   public const string SFX_BOX_BREAK = "BoxBreak";
+
    
 }
