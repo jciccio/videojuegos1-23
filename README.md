@@ -56,3 +56,24 @@ Escena Juego De plataformas
 -  Explicación de máquinas de estados
 -  Transiciones entre estados
 -  Agregadas animaciones de idle y run
+
+### 2 Mayo
+
+- Manejador de Audio para el juego breakout
+- Lista de elementos
+- Capacidad de reproducir o detener un elemento
+
+### 5 Mayo
+- Proyecto 3D, explicación de movimiento de un personaje
+   - Add Force
+   - Transform.translate
+   - MovePosition
+   - velocity
+
+### 9 Mayo
+- Animator
+- Animaciones en 3D
+- Uso de Keyframes y colliders
+
+### 12 Mayo
+- Scriptable Objects

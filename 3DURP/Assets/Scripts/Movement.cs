@@ -48,4 +48,8 @@ public class Movement : MonoBehaviour
         rb.MovePosition(transform.position + (direction*Speed*Time.deltaTime));
 
     }
+
+    void Rotate(){
+        
+    }
 }
